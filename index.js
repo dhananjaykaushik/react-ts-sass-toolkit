@@ -66,7 +66,7 @@ const cloneRepository = (appName, logger) => {
 
     // Moving all files to main folder
     const repoFolderPath = `${getPath("")}${REPO_FOLDER_NAME}`;
-    cmd.runSync(`mv ${repoFolderPath}/* ./`);
+    cmd.runSync(`mv ${repoFolderPath}/.* mv ${repoFolderPath}/* ./`);
 
     // Deleting folder
     cmd.runSync(`rm -rf ${repoFolderPath}`);
