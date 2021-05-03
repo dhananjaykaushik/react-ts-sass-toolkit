@@ -1,0 +1,23 @@
+{
+    "name": "react-ts-sass-toolkit",
+    "version": "1.0.0",
+    "description": "Utility to setup base react project with typescript and Sass support",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react",
+        "sass",
+        "typescript"
+    ],
+    "author": "Dhananjay kaushik",
+    "license": "ISC",
+    "dependencies": {
+        "@caporal/core": "^2.0.2",
+        "node-cmd": "^4.0.0"
+    },
+    "bin": {
+        "rjs": "./index.js"
+    }
+}
