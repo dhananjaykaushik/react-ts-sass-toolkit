@@ -1,6 +1,6 @@
 {
     "name": "react-ts-sass-toolkit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Utility to setup base react project with typescript and Sass support",
     "main": "index.js",
     "scripts": {
