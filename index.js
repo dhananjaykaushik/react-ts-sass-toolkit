@@ -7,7 +7,7 @@ const GIT_REPO = `https://github.com/dhananjaykaushik/react-ts-sass-skeleton.git
 const REPO_FOLDER_NAME = `react-ts-sass-skeleton`;
 
 const getPath = (name) => {
-    return `${__dirname}/${name}`;
+    return `${process.cwd()}/${name}`;
 };
 
 const namingRules = `
@@ -21,7 +21,7 @@ const namingRulesForComponent = `
     - Component should not exist.
     - First character cannot be number.
     - There should not be any white-space.
-    - No special characted in name..
+    - No special character in name.
 `;
 
 const validateName = (name) => {
@@ -65,7 +65,7 @@ const cloneRepository = (appName, logger) => {
     logger.info(`Repository cloned`);
 
     // Moving all files to main folder
-    const repoFolderPath = `${getPath(appName)}/${REPO_FOLDER_NAME}`;
+    const repoFolderPath = `${getPath("")}${REPO_FOLDER_NAME}`;
     cmd.runSync(`mv ${repoFolderPath}/* ./`);
 
     // Deleting folder
@@ -74,7 +74,7 @@ const cloneRepository = (appName, logger) => {
 
 const modifyPackageJson = (appName, logger, options) => {
     logger.info("Modifying package.json");
-    const packageJsonFilePath = `${getPath(appName)}/package.json`;
+    const packageJsonFilePath = `${getPath("")}package.json`;
     const data = JSON.parse(fs.readFileSync(packageJsonFilePath, "utf8"));
     data.name = appName;
     data.author = options.author;
