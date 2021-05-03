@@ -11,6 +11,10 @@
         "sass",
         "typescript"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhananjaykaushik/react-ts-sass-toolkit.git"
+    },
     "author": "Dhananjay kaushik",
     "license": "ISC",
     "dependencies": {
