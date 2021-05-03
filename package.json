@@ -22,6 +22,6 @@
         "node-cmd": "^4.0.0"
     },
     "bin": {
-        "rjs": "./index.js"
+        "rts": "./index.js"
     }
 }

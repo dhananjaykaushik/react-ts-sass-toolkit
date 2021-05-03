@@ -9,14 +9,16 @@ It comes bundled with Webpack with all configurations handled
 
 Run any of the following command
 
-`rjs create demo-app`
+`rts create demo-app`
 
-`rjs new demo-app`
+`rts new demo-app`
 
 ## Create component
 
 Run any of the following command to get txs and sass file for component
 
-`rjs component App`
+`rts component App`
 
-`rjs c App`
+`rts c App`
+
+Will be adding more functionalities sooner.....
