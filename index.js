@@ -158,6 +158,13 @@ const generateApp = ({ logger, args, options }) => {
       `);
     }
 };
+
+program.disableGlobalOption("verbose");
+program.disableGlobalOption("quiet");
+program.disableGlobalOption("silent");
+program.disableGlobalOption("--no-color");
+program.version("1.0.9");
+
 program
     .command("create")
     .argument(...generateAppArguments)
@@ -175,6 +182,7 @@ const generateComponentArguments = [
     "<component-name>",
     "Name of react component",
 ];
+
 const generateComponent = ({ logger, args }) => {
     if (
         args.componentName &&
