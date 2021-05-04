@@ -2,7 +2,6 @@
 const { program } = require("@caporal/core");
 const fs = require("fs-extra");
 const cmd = require("node-cmd");
-const mv = require("mv");
 
 const GIT_REPO = `https://github.com/dhananjaykaushik/react-ts-sass-skeleton.git`;
 const REPO_FOLDER_NAME = `react-ts-sass-skeleton`;
