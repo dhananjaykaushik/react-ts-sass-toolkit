@@ -163,7 +163,7 @@ program.disableGlobalOption("verbose");
 program.disableGlobalOption("quiet");
 program.disableGlobalOption("silent");
 program.disableGlobalOption("--no-color");
-program.version("1.0.9");
+program.version("1.0.10");
 
 program
     .command("create")
