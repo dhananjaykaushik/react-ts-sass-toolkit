@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const { program } = require("@caporal/core");
-const fs = require("fs");
+const fs = require("fs-extra");
 const cmd = require("node-cmd");
+const mv = require("mv");
 
 const GIT_REPO = `https://github.com/dhananjaykaushik/react-ts-sass-skeleton.git`;
 const REPO_FOLDER_NAME = `react-ts-sass-skeleton`;
@@ -66,10 +67,11 @@ const cloneRepository = (appName, logger) => {
 
     // Moving all files to main folder
     const repoFolderPath = `${getPath("")}${REPO_FOLDER_NAME}`;
-    cmd.runSync(`mv ${repoFolderPath}/.* mv ${repoFolderPath}/* ./`);
+
+    fs.copySync(repoFolderPath, getPath(""));
 
     // Deleting folder
-    cmd.runSync(`rm -rf ${repoFolderPath}`);
+    fs.removeSync(repoFolderPath);
 };
 
 const modifyPackageJson = (appName, logger, options) => {
@@ -81,9 +83,14 @@ const modifyPackageJson = (appName, logger, options) => {
     fs.writeFileSync(packageJsonFilePath, JSON.stringify(data, null, "\t"));
 };
 
-const installDependencies = (appName, logger) => {
+const installDependencies = (appName, logger, options) => {
     logger.info("Installing dependencies ...");
     cmd.runSync("npm install");
+};
+
+const initGitRepository = (appName, logger) => {
+    logger.info("Initializing git repository ...");
+    cmd.runSync("git init");
     logger.info("All setup.. Happy Coding !!");
 };
 
@@ -119,8 +126,7 @@ export const ${componentName} = () => {
             <p>${componentName} is here...</p>
         </>
     )
-}            
-            `,
+}`,
             (error) => {
                 if (!error) {
                     logger.info(`TSX file created successfully`);
@@ -145,6 +151,7 @@ const generateApp = ({ logger, args, options }) => {
         cloneRepository(args.appName, logger);
         modifyPackageJson(args.appName, logger, options);
         installDependencies(args.appName, logger);
+        initGitRepository(args.appName, logger);
     } else {
         logger.error(`
       Invalid App Name
